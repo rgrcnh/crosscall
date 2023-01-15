@@ -64,10 +64,12 @@ async function gitInteract() {
 
 				let remoteName = '';
 				try { 
-					remoteName = await api.repositories[0].getConfig(`branch.master.remote`);
+					console.log('Tentando como se o princial branch fosse main');
+					remoteName = await api.repositories[0].getConfig(`branch.main.remote`);
 					console.log(await api.repositories[0].getConfig(`remote.${remoteName}.url`));
 				} catch {
-					remoteName = await api.repositories[0].getConfig(`branch.main.remote`);
+					console.log('Tentando como se o princial branch fosse master');
+					remoteName = await api.repositories[0].getConfig(`branch.master.remote`);
 					console.log(await api.repositories[0].getConfig(`remote.${remoteName}.url`));
 				}
 			}
