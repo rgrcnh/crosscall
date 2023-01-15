@@ -33,7 +33,7 @@ async function gitInteract() {
 		const head = repo.state.HEAD;
 		if (head) {
 			// Get the branch and commit 
-			console.log("como é o repo.state.HEAD");
+			console.log("How is the content of repo.state.HEAD");
 			console.log(JSON.stringify(head));
 			const {commit,upstream, name: branch} = head;
 			
@@ -64,11 +64,11 @@ async function gitInteract() {
 
 				let remoteName = '';
 				try { 
-					console.log('Tentando como se o princial branch fosse main');
+					console.log('Trying with main branch as main');
 					remoteName = await api.repositories[0].getConfig(`branch.main.remote`);
 					console.log(await api.repositories[0].getConfig(`remote.${remoteName}.url`));
 				} catch {
-					console.log('Tentando como se o princial branch fosse master');
+					console.log('Trying with main branch as master');
 					remoteName = await api.repositories[0].getConfig(`branch.master.remote`);
 					console.log(await api.repositories[0].getConfig(`remote.${remoteName}.url`));
 				}
